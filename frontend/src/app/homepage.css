@@ -1,0 +1,82 @@
+.header-logo{
+    display: flex;
+    padding: 10px;
+    color: royalblue;
+    user-select: none;
+}
+
+.header-logo .logo{
+    width: 35px;
+    margin-right: 10px;
+    color: royalblue;
+}
+
+.login-form{
+    user-select: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% , -50%);
+    background-color: #ddd ;
+    border: 3px solid #ddd;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 325px;
+    padding: 30px;
+    box-shadow: -2px 2px 20px 1px #bdbdbd;
+}
+.form-head{
+    position: absolute;
+    top: -40px;
+    left: 10px;
+    background-color: transparent;
+    font-weight: bold;
+    color: gray;
+}
+.form-div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: transparent;
+    margin-bottom: 5px;
+}
+
+.form-div label{
+    background-color: transparent;
+    font-size: 15px;
+}
+
+.form-div input{
+    border: 1px solid transparent;
+    padding: 5px;
+    background-color: #eee;
+    border-radius: 6px;
+    transition: 0.5s;
+}
+
+.form-div input:focus{
+    outline: 1px solid gray;
+    color: royalblue;
+}
+
+form .login-btn{
+    padding: 5px 10px;
+    width: 150px;
+    margin-top: 10px;
+    background-color: transparent;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border: 2px solid gray;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.8s;
+}
+
+form .login-btn:hover{
+    background-color: gray;
+    color: white;
+}
