@@ -19,8 +19,8 @@
 }
 
 .click {
-    border:  2px solid rebeccapurple;
-    background-color: rebeccapurple;
+    border:  2px solid royalblue;
+    background-color: royalblue;
     font-size: 14px;
     border-radius: 4px;
      margin: 10px;
@@ -33,7 +33,7 @@
 }
 .click:hover{
     background-color: transparent;
-    color: rebeccapurple;
+    color: royalblue;
 }
 .control{
     padding: 10px;

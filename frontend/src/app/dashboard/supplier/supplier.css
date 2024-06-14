@@ -7,7 +7,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 350px;
-    border: 3px solid red;
+    border: 3px solid royalblue;
     border-radius: 6px;
     padding: 15px;
 }
@@ -18,7 +18,7 @@
     left: 8px;
     background-color: #eee;
     padding: 0 5px;
-    color: red;
+    color: royalblue;
 }
 
 .supplier .supplier-div{
@@ -43,16 +43,16 @@
 
 .supplier .supplier-div input:focus{
     outline: none;
-    color: red;
+    color: royalblue;
 }
 
 .supplier .inp-sup{
     width: 120px;
     padding: 5px 10px;
     background-color: transparent;
-    border: 2px solid red;
+    border: 2px solid royalblue;
     color: white;
-    background-color: red;
+    background-color: royalblue;
     font-weight: bold;
     letter-spacing: 0.5px;
     border-radius: 4px;
@@ -63,5 +63,28 @@
 
 .supplier .inp-sup:hover{
     background-color: transparent;
-    color: red;
+    color: royalblue;
+}
+
+.msg{
+    background-color: royalblue;
+    width: 350px;
+    color: white;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 70px;
+    user-select: none;
+    display: none;
+}
+.msg h5{
+    border-bottom: 1px solid #eee;
+    padding: 5px 10px;
+    color: white;
+}
+
+.msg p{
+    padding: 5px 12px;
+    font-size: 13px;
+    color: #eee;
 }

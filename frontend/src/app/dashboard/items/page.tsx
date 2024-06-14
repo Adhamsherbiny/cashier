@@ -2,7 +2,7 @@
 'use client'
 import axios from "axios"
 import "./items.css"
-import {Key, useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 export default function Item() {
   const [supplier , setSupplier] = useState<any>([])
@@ -12,9 +12,22 @@ export default function Item() {
   const [itemSupplier , setItemSupplier] = useState<any>([])
   const [itemUnit , setItemUnit] = useState<any>([])
 
+  const massageBox = useRef<any>([])
+  const massage = useRef<any>([])
+
   function saveItem(e: { preventDefault: () => void }){
+    e.preventDefault()
       axios.post('http://localhost:5000/admins/createitem' , {itemId , itemName , itemFactory ,itemSupplier ,itemUnit })
-      .then(response=>(console.log(response.data)))
+      .then(response=>{
+        massage.current.innerText = response.data.msg
+        massageBox.current.style.display = "none"
+        if(massageBox.current.style.display == "none"){
+          massageBox.current.style.display = "block"
+          setTimeout(() => {
+            massageBox.current.style.display = "none"
+          }, 2500);
+        }
+      })
       .catch(err =>(console.log(err)))
   }
 
@@ -27,23 +40,26 @@ export default function Item() {
   } , [supplier])
   
   return (
+    <div>
+
+    
     <form onSubmit={saveItem} action="" className="item-form" autoComplete="off">
       <h5 className="item-d-head">Item Definition</h5>
       <div className="itm-f-div">
           <label htmlFor="item-id">Item ID</label>
-          <input type="text" id="item-id" onChange={(e)=>{setItemID(e.target.value)}} />
+          <input type="text" id="item-id" required onChange={(e)=>{setItemID(e.target.value)}} />
       </div>
       <div className="itm-f-div">
           <label htmlFor="item-name">Item Name</label>
-          <input type="text" id="item-name" onChange={(e)=>{setItemName(e.target.value)}} />
+          <input type="text" id="item-name" required onChange={(e)=>{setItemName(e.target.value)}} />
       </div>
       <div className="itm-f-div">
           <label htmlFor="item-factoury">Item Factoury</label>
-          <input type="text" id="item-factoury" onChange={(e)=>{setItemFactory(e.target.value)}} />
+          <input type="text" id="item-factoury" required onChange={(e)=>{setItemFactory(e.target.value)}} />
       </div>
       <div className="itm-f-div">
           <label htmlFor="sup">Supplier</label>
-          <input list="supplier" type="text" id="sup" onChange={(e)=>{setItemSupplier(e.target.value)}} />
+          <input list="supplier" type="text" id="sup" required onChange={(e)=>{setItemSupplier(e.target.value)}} />
           <datalist id="supplier">
             {
                 supplier.map((data: any)=>(
@@ -54,7 +70,7 @@ export default function Item() {
       </div>
       <div className="itm-f-div">
           <label htmlFor="item-unit">Item Unit</label>
-          <input type="text" list="unit" id="item-unit"  onChange={(e)=>{setItemUnit(e.target.value)}}/>
+          <input type="text" list="unit" id="item-unit" required  onChange={(e)=>{setItemUnit(e.target.value)}}/>
           <datalist id="unit">
             <option value="Piece">Piece</option>
             <option value="Box">Box</option>
@@ -63,5 +79,10 @@ export default function Item() {
       </div>
       <input className="inp-itm" type="submit" value="Add Item" />
     </form>
+    <div className="msg" ref={massageBox}>
+        <h5>System Notfication</h5>
+        <p className="msgBox" ref={massage}></p>
+      </div>
+    </div>
   )
 }

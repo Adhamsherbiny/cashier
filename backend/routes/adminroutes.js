@@ -36,7 +36,7 @@ router.post("/login" , (req , res)=>{
                  bcrypt.compare(req.body.password, userInfo[0].password , (err , re)=>{
                         if (err) throw err
                         if (re){
-                          res.status(200).json({msg:"Login Successfly", Login: true});
+                          res.status(200).json({msg:"Login Successfly", Login: true , user: userInfo[0].username});
                         } else{
                           res.status(200).json({msg:"Sorry wrong username or password" , Login: false});
                         }
@@ -51,7 +51,7 @@ router.post("/createitem" , (req , res)=>{
     databaseConnect.query("INSERT INTO `item_definition` (item_id, item_name, item_factoury, item_supplier, item_unit) VALUES (?)" , [values] ,  (err , result)=>{
         if(err) throw err
         else{
-            res.json({result , msg: "Added New Item"})
+            res.json({msg: "Added New Item"})
         }
     })
 })
@@ -61,10 +61,23 @@ router.post("/createsupplier" , (req , res)=>{
     databaseConnect.query("INSERT INTO `supplier` (sup_id, sup_name, sup_adress) VALUES (?)" , [values] ,  (err , result)=>{
         if(err) throw err
         else{
-            res.json({result , msg: "Added New Supplier"})
+            res.json({msg: "Added New Supplier"})
         }
     })
 })
+
+router.post("/itemprice" , (req , res)=>{
+    const values = [req.body.itemId , req.body.po , req.body.tax , req.body.margin , req.body.sale , req.body.unit , req.body.price]
+    databaseConnect.query("INSERT INTO `item_price` (item_id, po, tax , margin , sale , unit , price) VALUES (?)" , [values] ,  (err , result)=>{
+        if(err) throw err
+        else{ 
+            res.json({msg: "Added New Price"})
+        }
+    })
+})
+
+
+
 
 router.get("/supplier" , (req , res)=>{
     databaseConnect.query("SELECT * FROM supplier" , (err , result)=>{

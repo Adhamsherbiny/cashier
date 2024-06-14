@@ -24,7 +24,7 @@ export default function Dashboard({
         <Link className='click' href="/dashboard/items">Inventory Buy</Link>
         <Link className='click' href="/dashboard/items">Inventory Sell</Link>
         <Link className='click' href="/dashboard/items">Treasury</Link>
-        <Link className='click' href="/dashboard/items">Create User</Link>
+        <Link className='click' href="/dashboard/user">Create User</Link>
         <Link className='click' href="/dashboard/items">Settings</Link>
       </div>
       {children}

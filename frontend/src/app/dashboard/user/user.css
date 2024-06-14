@@ -1,62 +1,58 @@
-.item-form{
-    width: 350px;
-    padding: 15px;
+.user-definition{
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 3px solid royalblue;
-    border-radius: 6px;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50% , -50%);
-    user-select: none;
-    background-color: #eee;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    border: 3px solid red;
+    border-radius: 6px;
+    padding: 15px;
 }
 
-.item-form .item-d-head{
+.user-definition .user-d-head{
     position: absolute;
-    left: 8px;
     top: -11px;
-    padding: 0 5px;
-    color: royalblue;
+    left: 8px;
     background-color: #eee;
+    padding: 0 5px;
+    color: red;
 }
 
-.item-form .itm-f-div{
+.user-definition .user-div{
     width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     margin-bottom: 5px;
 }
 
-.item-form .itm-f-div label{
+.user-definition .user-div label{
     font-size: 14px;
 }
 
-.item-form .itm-f-div input{
+.user-definition .user-div input{
     padding: 3px 8px;
-    /* border-radius: 6px 6px 0px 0px; */
-    width: 220px;
+    width: 200px;
     border: none;
     border-bottom: 1px solid gray;
     border-left: 1px solid #ddd;
 }
 
-
-.item-form .itm-f-div input:focus{
+.user-definition .user-div input:focus{
     outline: none;
-    color: royalblue;
+    color: red;
 }
 
-.item-form .inp-itm{
+.user-definition .inp-user{
     width: 120px;
     padding: 5px 10px;
     background-color: transparent;
-    border: 2px solid royalblue;
+    border: 2px solid red;
     color: white;
-    background-color: royalblue;
+    background-color: red;
     font-weight: bold;
     letter-spacing: 0.5px;
     border-radius: 4px;
@@ -65,10 +61,11 @@
     margin-top: 5px;
 }
 
-.item-form .inp-itm:hover{
+.user-definition .inp-user:hover{
     background-color: transparent;
-    color: royalblue;
+    color: red;
 }
+
 
 .msg{
     background-color: royalblue;
