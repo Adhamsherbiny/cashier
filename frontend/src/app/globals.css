@@ -4,3 +4,27 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
+
+.msg{
+  background-color: royalblue;
+  width: 350px;
+  color: white;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 70px;
+  user-select: none;
+  display: none;
+  border-radius: 6px;
+}
+.msg h5{
+  border-bottom: 1px solid #eee;
+  padding: 5px 10px;
+  color: white;
+}
+
+.msg p{
+  padding: 5px 12px;
+  font-size: 13px;
+  color: #eee;
+}

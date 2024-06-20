@@ -1,55 +1,53 @@
-.item-form{
-    width: 350px;
-    padding: 15px;
+.price-page .price-form{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    padding: 12px;
     border: 3px solid royalblue;
     border-radius: 6px;
+    width: 350px;
     position: absolute;
-    top: 50%;
     left: 50%;
+    top: 50%;
     transform: translate(-50% , -50%);
-    user-select: none;
-    background-color: #eee;
 }
 
-.item-form .item-d-head{
+.price-form .price-head{
     position: absolute;
-    left: 8px;
     top: -11px;
+    left: 8px;
     padding: 0 5px;
     color: royalblue;
     background-color: #eee;
 }
 
-.item-form .itm-f-div{
+.price-form .price-d{
     width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     margin-bottom: 5px;
 }
 
-.item-form .itm-f-div label{
+.price-form .price-d label{
     font-size: 14px;
 }
-
-.item-form .itm-f-div input{
+.price-form .price-d input {
     padding: 3px 8px;
-    width: 220px;
+    width: 250px;
     border: none;
     border-bottom: 1px solid gray;
     border-left: 1px solid #ddd;
 }
 
-
-.item-form .itm-f-div input:focus{
+.price-form .price-d input:focus{
     outline: none;
     color: royalblue;
 }
 
-.item-form .inp-itm{
+
+.price-form .inp-itm-p{
     width: 120px;
     padding: 5px 10px;
     background-color: transparent;
@@ -64,8 +62,7 @@
     margin-top: 5px;
 }
 
-.item-form .inp-itm:hover{
+.price-form .inp-itm-p:hover{
     background-color: transparent;
     color: royalblue;
 }
-

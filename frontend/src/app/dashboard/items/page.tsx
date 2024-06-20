@@ -8,20 +8,26 @@ export default function Item() {
   const [supplier , setSupplier] = useState<any>([])
   const [itemId , setItemID] = useState<any>([])
   const [itemName , setItemName] = useState<any>([])
-  const [itemFactory , setItemFactory] = useState<any>([])
   const [itemSupplier , setItemSupplier] = useState<any>([])
-  const [itemUnit , setItemUnit] = useState<any>([])
+  const [piece , setPiece] = useState<any>([])
+  const [pro , setPro] = useState<any>([])
+  const [exp , setExp] = useState<any>([])
 
   const massageBox = useRef<any>([])
   const massage = useRef<any>([])
 
   function saveItem(e: { preventDefault: () => void }){
     e.preventDefault()
-      axios.post('http://localhost:5000/admins/createitem' , {itemId , itemName , itemFactory ,itemSupplier ,itemUnit })
+      axios.post('http://localhost:5000/admins/createitem' , {itemId , itemName  ,itemSupplier , piece , pro , exp})
       .then(response=>{
         massage.current.innerText = response.data.msg
         massageBox.current.style.display = "none"
         if(massageBox.current.style.display == "none"){
+          if(response.data.msg == "Item is Already Exist"){
+            massageBox.current.style.backgroundColor = "red"
+          }else{
+            massageBox.current.style.backgroundColor = "green"
+          }
           massageBox.current.style.display = "block"
           setTimeout(() => {
             massageBox.current.style.display = "none"
@@ -54,10 +60,6 @@ export default function Item() {
           <input type="text" id="item-name" required onChange={(e)=>{setItemName(e.target.value)}} />
       </div>
       <div className="itm-f-div">
-          <label htmlFor="item-factoury">Item Factoury</label>
-          <input type="text" id="item-factoury" required onChange={(e)=>{setItemFactory(e.target.value)}} />
-      </div>
-      <div className="itm-f-div">
           <label htmlFor="sup">Supplier</label>
           <input list="supplier" type="text" id="sup" required onChange={(e)=>{setItemSupplier(e.target.value)}} />
           <datalist id="supplier">
@@ -69,14 +71,17 @@ export default function Item() {
           </datalist>
       </div>
       <div className="itm-f-div">
-          <label htmlFor="item-unit">Item Unit</label>
-          <input type="text" list="unit" id="item-unit" required  onChange={(e)=>{setItemUnit(e.target.value)}}/>
-          <datalist id="unit">
-            <option value="Piece">Piece</option>
-            <option value="Box">Box</option>
-            <option value="Carton">Carton</option>
-          </datalist>
+          <label htmlFor="piece">Piece</label>
+          <input type="number" id="piece" required onChange={(e)=>{setPiece(e.target.value)}} />
       </div>
+      <div className="itm-f-div">
+          <label htmlFor="pro">Pro</label>
+          <input type="Date" id="pro" required onChange={(e)=>{setPro(e.target.value)}} />
+        </div>
+        <div className="itm-f-div">
+          <label htmlFor="exp">Exp</label>
+          <input type="Date" id="exp" required onChange={(e)=>{setExp(e.target.value)}} />
+        </div>
       <input className="inp-itm" type="submit" value="Add Item" />
     </form>
     <div className="msg" ref={massageBox}>

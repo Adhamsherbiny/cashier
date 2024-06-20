@@ -15,6 +15,11 @@ export default function Supplier() {
           massage.current.innerText = response.data.msg
           massageBox.current.style.display = "none"
           if(massageBox.current.style.display == "none"){
+            if(response.data.msg == "Supplier is Already Exist"){
+              massageBox.current.style.backgroundColor = "red"
+            }else{
+              massageBox.current.style.backgroundColor = "green"
+            }
             massage.current.innerText = response.data.msg
             massageBox.current.style.display = "block"
             setTimeout(() => {

@@ -15,6 +15,11 @@ export default function User() {
     .then(response=>{
       massage.current.innerText = response.data.msg
           if(massageBox.current.style.display == "none"){
+            if(response.data.msg == "Added New User"){
+              massageBox.current.style.backgroundColor = "green"
+            }else{
+              massageBox.current.style.backgroundColor = "red"
+            }
             massageBox.current.style.display = "block"
             setTimeout(() => {
               massageBox.current.style.display = "none"

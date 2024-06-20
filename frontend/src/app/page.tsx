@@ -15,14 +15,23 @@ export default function Home() {
     e.preventDefault()
     axios.post("http://localhost:5000/admins/login" , {username , password})
     .then(function (response) {
-      localStorage.setItem("user" , response.data.user)
-        massage.current.innerText = response.data.msg
+      massage.current.innerText = response.data.msg
+      if(true){
         massageBox.current.style.display = "block"
-
-      if(response.data.Login === true){
+        setTimeout(() => {
+          massageBox.current.style.display = "none";   
+        }, 1000);
+        if(response.data.msg == "Login Successfly"){
+          massageBox.current.style.backgroundColor = "green"
+        }else{
+          massageBox.current.style.backgroundColor = "red"
+        }
+      }
+        if(response.data.Login === true){
+        localStorage.setItem("user" , response.data.user)
         setTimeout(() => {
           router.push("/dashboard")
-        }, 1000);
+        }, 1500);
       }
     }).catch(function (error) {
       console.log(error);
