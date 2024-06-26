@@ -3,7 +3,7 @@ import "./dashboard.css";
 import Link from "next/link";
 
 export default function Dashboard({
-  children, // will be a page or nested layout
+  children,
 }: {
   children: React.ReactNode;
 }) {
