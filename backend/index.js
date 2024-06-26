@@ -1,6 +1,5 @@
 import express from "express";
 import cors from "cors";
-import databaseConnect from "./database/database.js";
 import { adminRouter } from "./routes/adminroutes.js";
 const port = 5000
 const app = express()

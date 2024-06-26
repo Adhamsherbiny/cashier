@@ -13,7 +13,7 @@ export default function Home() {
   const [password , setPassword] = useState<any>([])
   function login(e: any){
     e.preventDefault()
-    axios.post("https://cashier-server-henna.vercel.app/admins/login" , {username , password})
+    axios.post("http://localhost:5000/admins/login" , {username , password})
     .then(function (response) {
       massage.current.innerText = response.data.msg
       if(true){
