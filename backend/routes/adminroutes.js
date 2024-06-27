@@ -1,10 +1,14 @@
 import cors from "cors"
-import express, { Router, json } from "express"
+import express from "express"
 import databaseConnect from "../database/database.js"
 import bcrypt from "bcrypt"
 const router = express.Router()
 router.use(express.json())
-router.use(cors())
+router.use(cors({
+    origin:"*",
+    methods: ["POST" , "GET"],
+    Credential:true
+}))
 
 router.post('/adduser' , async (req , res)=>{
     const values = [req.body.username , await bcrypt.hash(req.body.password,10)  , req.body.per];
