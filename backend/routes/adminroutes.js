@@ -157,4 +157,4 @@ router.post("/inventoryBuy" , (req , res)=>{
     })
 })
 
-export {router as adminRouter}
+export default {router}
