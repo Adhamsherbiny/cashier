@@ -4,7 +4,7 @@ import { adminRouter } from "./routes/adminroutes.js";
 const port = 5000
 const app = express()
 app.use(cors({
-    origin:["https://cashier-npyhywfjw-adhamsherbinys-projects.vercel.app/"],
+    origin:"*",
     methods: ["POST" , "GET"],
     Credential:true
 }
